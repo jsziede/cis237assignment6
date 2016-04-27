@@ -3,29 +3,53 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Welcome</h1>
+    <p class="lead">Managing your beverages has never been easier. With this site, you can access your collection of beverages anywhere and anytime, on any device.</p>
+    @if (Request.IsAuthenticated)
+    {
+        <p class="btn btn-primary btn-lg" style="background: white;">@Html.ActionLink("Get Started", "Index", "Beverages")</p>
+    }
+    else
+    {
+        <p class="btn btn-primary btn-lg" style="background: white;">@Html.ActionLink("Get Started", "Login", "Account")</p>
+    }
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2 style="color: #23ce9e;">About</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Need help using this site? Be sure to visit the About page to learn what you can do to manage your beverages.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p class="btn btn-default" style="border-color: #23ce9e;">@Html.ActionLink("Learn more", "About", "Home")</p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2 style="color: #c15ae5;">Contact</h2>
+        <p>
+            Something not working right? Encountered an unexpected error? Want to add further functionality? Contact the creator of this site!
+        </p>
+        <p class="btn btn-default" style="border-color: #c15ae5;">@Html.ActionLink("View details", "Contact", "Home")</p>
     </div>
+    @*Check to see if the user is authenticated. If so, we
+        can link the user to the Beverages page*@
+    @if (Request.IsAuthenticated)
+    {
+        <div class="col-md-4">
+            <h2 style="color: #ec4646;">Manage</h2>
+            <p>
+                View your collection of beverages and add, delete, or modify each beverage. You can also search for specific beverages.
+            </p>
+            <p class="btn btn-default" style="border-color: #ec4646;">@Html.ActionLink("View now", "Index", "Beverages")</p>
+        </div>
+    }
+    else
+    {
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2 style="color: #ec4646;">Manage</h2>
+        <p>
+            Log in now to view and manage your collection of beverages.
+        </p>
+        <p class="btn btn-default" style="border-color: #ec4646;">@Html.ActionLink("Log in", "Login", "Account")</p>
     </div>
+    }
 </div>
