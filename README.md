@@ -115,7 +115,11 @@ browser and delete all your cookies. I'm sure only a few are
 the culprit, but I don't know which ones.
 
 ## Outside Resources Used
+Just the inclass6
 
 ## Known Problems, Issues, And/Or Errors in the Program
+ViewBags that were manually added do not appear to be working, but I have no idea why.
 
+"Once a user is registered and logged in, they will be able to see navigation links to reach this page. If they try to navigate directly to this page without being logged in, it should redirect them to the home page."
 
+I am unsure how to do this, so all of the authorization redirects go to the login page.
